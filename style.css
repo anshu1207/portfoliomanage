@@ -1,0 +1,129 @@
+/* Custom styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-bar {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: #0d9488;
+  border-radius: 4px;
+}
+
+.project-card {
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tech-item {
+  background: #0d9488;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+
+html, body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* Ensure image doesn't overflow on small devices */
+@media (max-width: 640px) {
+  #home .container {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+  }
+  
+  #home img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
+
+
+/* Add these new styles */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+
+/* Complete fronted integration */
+/* Purchase Section Styles */
+#portfolio-template .purchase-btn {
+  transition: all 0.3s ease;
+}
+
+#portfolio-template .purchase-btn:hover {
+  transform: translateY(-2px);
+}
+
+#portfolio-template .plan-card {
+  transition: box-shadow 0.3s ease;
+}
+
+#portfolio-template .plan-card:hover {
+  box-shadow: 0 10px 25px -5px rgba(13, 148, 136, 0.3);
+}
+
+/* Payment Icons */
+.fa-cc-razorpay:before {
+  content: "Razorpay";
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8em;
+  font-weight: bold;
+}

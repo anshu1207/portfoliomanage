@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            animation: {
+              'spin-slow': 'spin 8s linear infinite',
+              'wave': 'wave 2.5s infinite',
+            },
+            keyframes: {
+              wave: {
+                '0%': { transform: 'rotate(0deg)' },
+                '10%': { transform: 'rotate(14deg)' },
+                '20%': { transform: 'rotate(-8deg)' },
+                '30%': { transform: 'rotate(14deg)' },
+                '40%': { transform: 'rotate(-4deg)' },
+                '50%': { transform: 'rotate(10deg)' },
+                '60%': { transform: 'rotate(0deg)' },
+                '100%': { transform: 'rotate(0deg)' },
+              }
+            }
+          }
+        }
+      };
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+    <!-- Navbar -->
+    <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm">
+      <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+        <a href="#" class="text-xl font-bold text-teal-600 dark:text-teal-400">Portfolio</a>
+        <div class="flex items-center gap-4">
+          <ul class="hidden md:flex space-x-6">
+            <li><a href="#home" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Home</a></li>
+            <li><a href="#about" class="hover:text-teal-600 dark:hover:text-teal-400 transition">About</a></li>
+            <li><a href="#skills" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Skills</a></li>
+            <li><a href="#projects" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Projects</a></li>
+            <li><a href="#contact" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Contact</a></li>
+          </ul>
+
+          <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+            <i class="fas fa-moon hidden dark:inline-block text-teal-400"></i>
+            <i class="fas fa-sun dark:hidden text-teal-600"></i>
+          </button>
+          
+          <button id="mobile-menu-button" class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+      
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
+        <ul class="px-4 py-2 space-y-2">
+          <li><a href="#home" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition">Home</a></li>
+          <li><a href="#about" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition">About</a></li>
+          <li><a href="#skills" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition">Skills</a></li>
+          <li><a href="#projects" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition">Projects</a></li>
+          <li><a href="#contact" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="min-h-screen flex items-center pt-16">
+  <div class="container mx-auto px-6 py-10 md:py-20 flex flex-col md:flex-row items-center">
+    <!-- Text Content (Left Side) -->
+    <div class="md:w-1/2 text-center md:text-left order-2 md:order-1">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+        <span class="inline-block animate-wave ml-[1rem] md:mb-[2rem] md:ml-[10rem]">Hey! 👋</span> I'm<br />
+        <span class="text-teal-600 dark:text-teal-400 md:ml-[3rem]">Anshu Kumar Singh</span>
+      </h1>
+
+      <h1 class="text-xl md:text-2xl font-semibold h-10 mb-4 md:ml-[9rem]">
+        I'm a <span id="typed-role" class="text-teal-500"></span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-lg md:ml-[3rem]">
+        I build exceptional digital experiences with modern web technologies.
+      </p>
+      
+      <div class="flex gap-4 justify-center md:justify-start md:ml-[3rem]">
+        <a href="#contact" 
+        class="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-medium transition shadow-lg hover:shadow-teal-500/30">
+          Contact Me
+        </a>
+        <a href="#projects" 
+        class="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-medium transition shadow-lg hover:shadow-teal-500/30">
+          View Projects
+        </a>
+        <a href="store1/anshu.kr.singh_cv.docx" 
+           target="_blank"
+           rel="noopener noreferrer"
+           class="px-6 py-3 border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white rounded-lg font-medium transition dark:border-teal-400 dark:text-teal-400 dark:hover:bg-teal-400 dark:hover:text-gray-900">
+          View Resume
+        </a>
+      </div>
+      
+      <div class="mt-12 flex justify-center md:justify-start gap-6 md:ml-[9rem]">
+        <!-- Social Icons -->
+        <!-- For github -->
+        <a href="https://github.com/anshu1207" 
+           target="_blank"
+           rel="noopener noreferrer"
+           class="relative group w-10 h-10 flex items-center justify-center">
+          <span class="absolute inset-0 bg-gray-800 dark:bg-gray-200 rounded-full transition-all group-hover:opacity-0"></span>
+          <span class="absolute inset-0 bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+          <i class="fab fa-github text-gray-200 dark:text-gray-800 group-hover:text-white dark:group-hover:text-gray-100 relative z-10 text-2xl transition-colors"></i>
+        </a>
+
+        <!-- For Linkedin -->
+        <a href="https://www.linkedin.com/in/anshu-kumar-singh-70b0b7326" 
+           target="_blank"
+           rel="noopener noreferrer"
+           class="relative group w-10 h-10 flex items-center justify-center">
+            <span class="absolute inset-0 bg-[#0077B5] rounded-full transition-all"></span>
+            <span class="absolute inset-0 bg-gradient-to-br from-[#0077B5] to-[#00A0DC] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+          <i class="fab fa-linkedin-in text-white relative z-10 text-2xl"></i>
+          </a>
+
+        <!-- For twitter -->
+        <a href="https://twitter.com/rajput_anshu_"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="relative group w-10 h-10 flex items-center justify-center">
+            <span class="absolute inset-0 bg-[#0077B5] rounded-full transition-all"></span>
+            <span class="absolute inset-0 bg-gradient-to-br from-[#0077B5] to-[#00A0DC] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+          <i class="fab fa-twitter text-gray-200 dark:text-gray-800 group-hover:text-white dark:group-hover:text-gray-100 relative z-10 text-2xl transition-colors"></i>
+        </a>
+
+        <!-- For Instagram -->
+        <a href="https://www.instagram.com/rajput_.anshu._"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="relative group w-10 h-10 flex items-center justify-center">
+          <span class="absolute w-full h-full rounded-lg bg-gradient-to-tr from-purple-500 via-pink-500 to-yellow-400 p-0.5">
+          <span class="block w-full h-full rounded-[5px] bg-white dark:bg-gray-900 transition-colors"></span>
+          </span>
+            <i class="fab fa-instagram text-gray-800 dark:text-gray-200 relative z-10 group-hover:opacity-0 transition-opacity"></i>
+            <i class="fab fa-instagram absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-purple-500 via-pink-500 to-yellow-400 bg-clip-text text-transparent opacity-0 group-hover:opacity-100 transition-opacity"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Profile Image (Right Side) -->
+    <div class="md:w-1/2 flex justify-center mt-8 md:mt-0 order-1 md:order-2">
+      <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+        <div class="w-full h-full bg-teal-100 dark:bg-teal-900 rounded-full overflow-hidden border-8 border-teal-200 dark:border-teal-800 shadow-xl">
+          <img src="store1/anshu.jpg" alt="Profile" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg border border-gray-200 dark:border-gray-700">
+          <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-teal-600 dark:bg-teal-400 flex items-center justify-center text-white text-xl md:text-2xl animate-spin-slow">
+            <i class="fas fa-code"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- About Section -->
+    <!-- About Section -->
+<section id="about" class="relative py-20 bg-gray-100 dark:bg-gray-800 overflow-hidden">
+  <!-- Decorative background elements -->
+  <div class="absolute inset-0 opacity-10 dark:opacity-5">
+    <div class="absolute top-0 left-0 w-64 h-64 bg-teal-400 rounded-lg mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+    <div class="absolute top-0 right-0 w-64 h-64 bg-purple-400 rounded-lg mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+    <div class="absolute bottom-0 left-1/2 w-64 h-64 bg-pink-400 rounded-lg mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 reveal">
+      <span class="border-b-4 border-teal-600 dark:border-teal-400 pb-2">About Me</span>
+    </h2>
+    
+    <div class="flex flex-col lg:flex-row gap-8 items-center reveal">
+      <!-- Profile Image (Left Side) -->
+      <div class="lg:w-1/3 flex justify-center bg-white/90 dark:bg-gray-700/90 backdrop-blur-sm p-11 rounded-lg shadow-lg">
+        <div class="w-80 h-80 rounded-full overflow-hidden border-4 border-teal-600 dark:border-teal-400 shadow-lg relative">
+          <img src="store1/anshu.jpg" alt="Profile" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/30 dark:to-black/50"></div>
+        </div>
+      </div>
+      
+      <!-- About Content (Right Side) -->
+      <div class="lg:w-2/3 bg-white/90 dark:bg-gray-700/90 backdrop-blur-sm p-8 rounded-lg shadow-lg">
+        <h3 class="text-2xl font-semibold mb-4 text-teal-600 dark:text-teal-400">Who am I?</h3>
+        <div class="space-y-4 text-gray-600 dark:text-gray-300">
+          <p>
+            I'm Anshu Kumar Singh, a passionate Data Scientist with 1+ years of experience in data analysis, machine learning, and building intelligent applications.
+          </p>
+          <p>
+            My journey in tech began during my education, where I developed strong skills in Python, statistics, and data modeling.
+          </p>
+          <p>
+            When I'm not working with data, I enjoy contributing to open source projects and sharing knowledge with the tech community.
+          </p>
+        </div>
+        
+        <!-- Stats Table -->
+        <div class="mt-8">
+          <div class="grid grid-cols-3 gap-4 text-center">
+            <div>
+              <div class="text-2xl font-bold text-teal-600 dark:text-teal-400">1+</div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">Years Experience</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-teal-600 dark:text-teal-400">5+</div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">Projects</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-teal-600 dark:text-teal-400">10+</div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">Clients</div>
+            </div>
+          </div>
+          
+          <!-- Contact Buttons -->
+          <div class="grid grid-cols-3 gap-4 mt-4">
+            <a href="mailto:ansshu.kr.singh@gmail.com?subject=Portfolio%20Inquiry" class="flex items-center justify-center px-4 py-2 border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white rounded transition dark:border-teal-400 dark:text-teal-400 text-sm min-w-[100px]">
+            <i class="fas fa-envelope mr-2"></i> 
+              Email
+
+            <a href="https://www.linkedin.com/in/anshu-kumar-singh-70b0b7326" target="_blank" class="flex items-center justify-center px-4 py-2 border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white rounded transition dark:border-teal-400 dark:text-teal-400 text-sm min-w-[100px]">
+            <i class="fab fa-linkedin-in mr-2"></i> LinkedIn
+          </a>
+
+            <a href="https://wa.me/918102500498" target="_blank" class="flex items-center justify-center px-4 py-2 border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white rounded transition dark:border-teal-400 dark:text-teal-400 text-sm min-w-[100px]">
+            <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 reveal">
+          <span class="border-b-4 border-teal-600 dark:border-teal-400 pb-2">My Skills</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+          <div>
+            <h3 class="text-xl font-semibold mb-6">Technical Skills</h3>
+            
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Python</span>
+                  <span>95%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>SQL</span>
+                  <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Machine Learning</span>
+                  <span>85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Excel</span>
+                  <span>80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>HTML/CSS</span>
+                  <span>60%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-semibold mb-6">Professional Skills</h3>
+            
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Communication</span>
+                  <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Team Work</span>
+                  <span>85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Project Management</span>
+                  <span>80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Creativity</span>
+                  <span>95%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-100 dark:bg-gray-800">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 reveal">
+          <span class="border-b-4 border-teal-600 dark:border-teal-400 pb-2">My Projects</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+          <!-- Project 1 -->
+          <div class="project-card bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                   alt="Project 1" 
+                   class="w-full h-full object-cover transition duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">E-commerce Platform</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                A full-featured e-commerce platform with product listings, cart functionality, and payment integration.
+              </p>
+              <div class="tech-stack">
+                <span class="tech-item">React</span>
+                <span class="tech-item">Node.js</span>
+                <span class="tech-item">MongoDB</span>
+                <span class="tech-item">Stripe</span>
+              </div>
+              <div class="mt-6 flex gap-3">
+                <a href="#" class="text-sm px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded transition">
+                  Live Demo
+                </a>
+                <a href="#" class="text-sm px-4 py-2 border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white rounded transition dark:border-teal-400 dark:text-teal-400 dark:hover:bg-teal-400 dark:hover:text-gray-900">
+                  Code
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 2 -->
+          <div class="project-card bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                   alt="Project 2" 
+                   class="w-full h-full object-cover transition duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Task Management App</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                A productivity application for managing tasks with drag-and-drop functionality and team collaboration.
+              </p>
+              <div class="tech-stack">
+                <span class="tech-item">React</span>
+                <span class="tech-item">Firebase</span>
+                <span class="tech-item">Material UI</span>
+                <span class="tech-item">Redux</span>
+              </div>
+              <div class="mt-6 flex gap-3">
+                <a href="#" class="text-sm px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded transition">
+                  Live Demo
+                </a>
+                <a href="#" class="text-sm px-4 py-2 border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white rounded transition dark:border-teal-400 dark:text-teal-400 dark:hover:bg-teal-400 dark:hover:text-gray-900">
+                  Code
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 3 -->
+          <div class="project-card bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1555421689-3f034debb7a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                   alt="Project 3" 
+                   class="w-full h-full object-cover transition duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Health & Fitness Tracker</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                An application to track workouts, nutrition, and health metrics with data visualization.
+              </p>
+              <div class="tech-stack">
+                <span class="tech-item">Vue.js</span>
+                <span class="tech-item">Express</span>
+                <span class="tech-item">PostgreSQL</span>
+                <span class="tech-item">Chart.js</span>
+              </div>
+              <div class="mt-6 flex gap-3">
+                <a href="#" class="text-sm px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded transition">
+                  Live Demo
+                </a>
+                <a href="#" class="text-sm px-4 py-2 border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white rounded transition dark:border-teal-400 dark:text-teal-400 dark:hover:bg-teal-400 dark:hover:text-gray-900">
+                  Code
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-12 reveal">
+          <a href="#" class="inline-block px-6 py-3 border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white rounded-lg font-medium transition dark:border-teal-400 dark:text-teal-400 dark:hover:bg-teal-400 dark:hover:text-gray-900">
+            View All Projects
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+<!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-100 dark:bg-gray-800">...</section>
+
+    <!-- ============================================ -->
+    <!-- NEW PORTFOLIO TEMPLATE SALES SECTION -->
+    <!-- ============================================ -->
+    <section id="portfolio-template" class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 reveal">
+                <span class="border-b-4 border-teal-600 dark:border-teal-400 pb-2">Get This Portfolio Template</span>
+            </h2>
+            <p class="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12 reveal">
+                Want this exact portfolio for yourself? Purchase the complete template to kickstart your professional online presence.
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Left Column - Template Features -->
+                <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg reveal">
+                    <h3 class="text-2xl font-bold mb-6 text-teal-600 dark:text-teal-400">Template Features</h3>
+                    <ul class="space-y-4 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-500 mr-3 mt-1"></i>
+                            <span>Fully responsive design (mobile, tablet, desktop)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-500 mr-3 mt-1"></i>
+                            <span>Dark/Light mode toggle with system preference detection</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-500 mr-3 mt-1"></i>
+                            <span>Animated elements (typed.js, scroll reveals, wave animation)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-500 mr-3 mt-1"></i>
+                            <span>Contact form ready for backend integration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-500 mr-3 mt-1"></i>
+                            <span>Easy-to-customize color scheme and content</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-teal-500 mr-3 mt-1"></i>
+                            <span>Well-documented clean code</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-600">
+                        <h4 class="font-semibold mb-3">What's Included:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-sm">HTML Files</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-sm">CSS Files</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-sm">Documentation</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-sm">Support</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Purchase Options -->
+                <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg reveal">
+                    <h3 class="text-2xl font-bold mb-6 text-teal-600 dark:text-teal-400">Purchase Options</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Basic License -->
+                        <div class="border border-gray-200 dark:border-gray-600 rounded-lg p-6 hover:shadow-md transition">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold text-lg">Basic License</h4>
+                                    <p class="text-gray-500 dark:text-gray-400 text-sm">For personal use only</p>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-2xl font-bold">₹999</span>
+                                    <span class="text-gray-500 dark:text-gray-400 line-through text-sm block">₹1999</span>
+                                </div>
+                            </div>
+                            <button class="mt-4 w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition purchase-btn" data-plan="basic">
+                                Buy Now
+                            </button>
+                        </div>
+                        
+                        <!-- Developer License (Highlighted) -->
+                        <div class="border-2 border-teal-500 rounded-lg p-6 relative hover:shadow-md transition">
+                            <div class="absolute top-0 right-0 bg-teal-500 text-white text-xs font-bold px-2 py-1 rounded-bl-lg rounded-tr-lg">
+                                POPULAR
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold text-lg">Developer License</h4>
+                                    <p class="text-gray-500 dark:text-gray-400 text-sm">For clients and commercial projects</p>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-2xl font-bold">₹2499</span>
+                                    <span class="text-gray-500 dark:text-gray-400 line-through text-sm block">₹4999</span>
+                                </div>
+                            </div>
+                            <button class="mt-4 w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition purchase-btn" data-plan="developer">
+                                Buy Now
+                            </button>
+                        </div>
+                        
+                        <!-- Customization Service -->
+                        <div class="border border-gray-200 dark:border-gray-600 rounded-lg p-6 hover:shadow-md transition">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold text-lg">Customization Service</h4>
+                                    <p class="text-gray-500 dark:text-gray-400 text-sm">We'll customize it for you</p>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-2xl font-bold">₹1499</span>
+                                    <span class="text-gray-500 dark:text-gray-400 text-sm block">additional</span>
+                                </div>
+                            </div>
+                            <button class="mt-4 w-full py-3 border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white font-medium rounded-lg transition dark:border-teal-400 dark:text-teal-400 purchase-btn" data-plan="customization">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Methods -->
+                    <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-600">
+                        <h4 class="text-sm font-semibold mb-3 text-center">SECURE PAYMENT METHODS</h4>
+                        <div class="flex justify-center gap-4">
+                            <i class="fab fa-cc-paypal text-2xl text-gray-700 dark:text-gray-300" title="PayPal"></i>
+                            <i class="fab fa-google-pay text-2xl text-gray-700 dark:text-gray-300" title="Google Pay"></i>
+                            <i class="fab fa-cc-razorpay text-2xl text-gray-700 dark:text-gray-300" title="Razorpay"></i>
+                            <i class="fas fa-university text-2xl text-gray-700 dark:text-gray-300" title="Bank Transfer"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">...</section>
+
+    <!-- Your existing footer remains unchanged -->
+    <!-- ... -->
+
+    <!-- Add this JavaScript for payment processing -->
+    <script>
+        // Payment Button Handlers
+        document.querySelectorAll('.purchase-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const plan = this.getAttribute('data-plan');
+                let description, amount;
+                
+                // Set product details based on plan
+                switch(plan) {
+                    case 'basic':
+                        description = "Basic Portfolio Template License";
+                        amount = 99900; // ₹999 in paise
+                        break;
+                    case 'developer':
+                        description = "Developer Portfolio Template License";
+                        amount = 249900; // ₹2499 in paise
+                        break;
+                    case 'customization':
+                        description = "Portfolio Template Customization Service";
+                        amount = 149900; // ₹1499 in paise
+                        break;
+                }
+                
+                // Initialize Razorpay (example)
+                const options = {
+                    key: "YOUR_RAZORPAY_API_KEY", // Replace with your actual key
+                    amount: amount,
+                    currency: "INR",
+                    name: "Anshu's Portfolio Template",
+                    description: description,
+                    image: "https://anshu1207.github.io/portfolioanshu/anshu.jpg", // Your logo
+                    handler: function(response) {
+                        // On successful payment
+                        alert(`Thank you! Payment successful for ${description}`);
+                        // Here you would typically:
+                        // 1. Send download link to customer email
+                        // 2. Record the transaction in your database
+                        // 3. Redirect to thank you page
+                    },
+                    prefill: {
+                        name: "Customer Name",
+                        email: "customer@example.com",
+                        contact: "9999999999"
+                    },
+                    notes: {
+                        address: "Template purchase"
+                    },
+                    theme: {
+                        color: "#0d9488" // Match your teal color
+                    }
+                };
+                
+                const rzp = new Razorpay(options);
+                rzp.open();
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 reveal">
+          <span class="border-b-4 border-teal-600 dark:border-teal-400 pb-2">Get In Touch</span>
+        </h2>
+        
+        <div class="flex flex-col lg:flex-row gap-12 reveal">
+          <div class="lg:w-1/2">
+            <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-8">
+              Feel free to reach out to me for any questions or opportunities. I'll get back to you as soon as possible.
+            </p>
+            
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <div class="text-teal-600 dark:text-teal-400 text-xl mt-1">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold">Location</h4>
+                  <p class="text-gray-600 dark:text-gray-300">Gurgaon, India</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-4">
+                <div class="text-teal-600 dark:text-teal-400 text-xl mt-1">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold">Email</h4>
+                  <p class="text-gray-600 dark:text-gray-300">ansshu.kr.singh@gmail.com</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-4">
+                <div class="text-teal-600 dark:text-teal-400 text-xl mt-1">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold">Phone</h4>
+                  <p class="text-gray-600 dark:text-gray-300">+91 8102500498</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-8">
+              <h4 class="font-semibold mb-4">Follow Me</h4>
+              <div class="flex gap-4">
+
+                <!-- For GitHub -->
+                <a href="https://github.com/anshu1207" 
+                class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-teal-600 hover:text-white transition">
+                  <i class="fab fa-github"></i>
+                </a>
+
+                <!-- For Linkedin -->
+                <a href="https://www.linkedin.com/in/anshu-kumar-singh-70b0b7326" 
+                class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-teal-600 hover:text-white transition">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <!-- For twitter -->
+                <a href="https://twitter.com/rajput_anshu_" 
+                class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-teal-600 hover:text-white transition">
+                  <i class="fab fa-twitter"></i>
+                </a>
+
+                <!-- For Instagram -->
+                <a href="https://www.instagram.com/rajput_.anshu._" 
+                class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-teal-600 hover:text-white transition">
+
+                  <i class="fab fa-instagram"></i>
+                </a>
+                
+              </div>
+            </div>
+          </div>
+          
+          <div class="lg:w-1/2">
+            <form class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="name" class="block mb-2 font-medium">Your Name</label>
+                  <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-600 dark:bg-gray-700 dark:border-gray-600">
+                </div>
+                <div>
+                  <label for="email" class="block mb-2 font-medium">Your Email</label>
+                  <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-600 dark:bg-gray-700 dark:border-gray-600">
+                </div>
+              </div>
+              
+              <div>
+                <label for="subject" class="block mb-2 font-medium">Subject</label>
+                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-600 dark:bg-gray-700 dark:border-gray-600">
+              </div>
+              
+              <div>
+                <label for="message" class="block mb-2 font-medium">Message</label>
+                <textarea id="message" rows="6" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-600 dark:bg-gray-700 dark:border-gray-600"></textarea>
+              </div>
+              
+              <button type="submit" class="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-medium transition shadow-lg hover:shadow-teal-500/30">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-100 dark:bg-gray-800">
+      <div class="container mx-auto px-6 text-center">
+        <div class="flex justify-center gap-6 mb-6">
+
+
+          <a href="https://github.com/anshu1207" 
+          class="text-gray-600 hover:text-teal-600 dark:text-gray-300 dark:hover:text-teal-400 transition">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+
+
+          <a href="https://www.linkedin.com/in/anshu-kumar-singh-70b0b7326" 
+          class="text-gray-600 hover:text-teal-600 dark:text-gray-300 dark:hover:text-teal-400 transition">
+            <i class="fab fa-linkedin-in text-xl"></i>
+          </a>
+
+
+          <a href="https://twitter.com/rajput_anshu_" 
+          class="text-gray-600 hover:text-teal-600 dark:text-gray-300 dark:hover:text-teal-400 transition">
+            <i class="fab fa-twitter text-xl"></i>
+          </a>
+
+
+          <a href="https://www.instagram.com/rajput_.anshu._" 
+          class="text-gray-600 hover:text-teal-600 dark:text-gray-300 dark:hover:text-teal-400 transition">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+
+          <a href="https://wa.me/918102500498" 
+   target="_blank"
+   rel="noopener noreferrer"
+   class="text-gray-600 hover:text-teal-600 dark:text-gray-300 dark:hover:text-teal-400 transition">
+  <i class="fab fa-whatsapp text-xl"></i>
+</a>
+
+
+        </div>
+        <!-- Include in footer -->
+<a href="/terms" class="text-gray-600 hover:text-teal-600 dark:text-gray-300">Terms</a>
+
+<!-- Sample content -->
+<h2>License Terms</h2>
+<p>Basic License allows personal use only. Developer License permits client projects.</p>
+<p>No redistribution or reselling allowed.</p> 
+
+<br>
+
+<h2>Data Collection</h2>
+<p>We collect payment information through Razorpay. We store email addresses for delivery.</p>
+
+<br> 
+
+        <p class="text-gray-600 dark:text-gray-300">
+          &copy; 2025 Anshu. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-teal-600 text-white rounded-full shadow-lg hidden items-center justify-center transition opacity-0 scale-0">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Typed.js for typing animation -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
